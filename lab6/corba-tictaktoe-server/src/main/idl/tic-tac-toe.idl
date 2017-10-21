@@ -1,0 +1,26 @@
+module TicTacToe
+{
+  const string VERSION = "2.0";
+
+  enum CellValueEnum { EMPTY, CROSS, ZERO };
+
+  enum StatusEnum { WAIT_FOR_ENEMY, WAIT_FOR_ENEMY_TURN, YOUR_TURN, WIN, LOSS };
+
+  struct Field {
+    /* values [x][y] */
+    CellValueEnum values [3][3];
+    StatusEnum status; 
+  };
+
+  interface Game
+  {
+    string getVersion();
+    boolean entry(in string nickname, out string gameCookie);
+    /* Only CROSS or ZERO, no EMPTY allowed here */
+    boolean getMySign(in string gameCookie, out CellValueEnum mySign);
+    boolean getField(in string gameCookie, out Field outField);
+    /* x, y in [0,1,2] */
+    boolean makeMove(in string gameCookie, in long x, in long y);
+    void exit(in string gameCookie);
+  };
+};
