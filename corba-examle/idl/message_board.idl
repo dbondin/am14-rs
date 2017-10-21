@@ -1,0 +1,8 @@
+module MessageBoard
+{
+  interface MessagePostBox
+  {
+    string getVersion();
+    oneway void putMessage(in string from, in string message);
+  };
+};

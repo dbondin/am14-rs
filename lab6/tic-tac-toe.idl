@@ -1,0 +1,27 @@
+module TicTacToe
+{
+  enum CellValueEnum { EMPTY, CROSS, ZERO };
+
+  enum StatusEnum { WAIT_FOR_ENEMY, WAIT_FOR_ENEMY_TURN, YOUR_TURN, WIN, LOSS };
+
+  struct Field {
+    /* values [x][y] */
+    CellValueEnum values [3][3];
+    StatusEnum status; 
+  };
+
+  interface Game {
+    /* Only CROSS or ZERO, no EMPTY allowed here */
+    CellValueEnum getMySign();
+    Field getField();
+    /* x, y in [0,1,2] */
+    boolean makeMove(in long x, in long y);
+    void exit();
+  };
+
+  interface EntryPoint
+  {
+    string getVersion();
+    boolean entry(in string nickname, out Game game);
+  };
+};
