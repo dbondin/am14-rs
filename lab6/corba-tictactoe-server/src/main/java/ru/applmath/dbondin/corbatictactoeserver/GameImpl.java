@@ -1,4 +1,4 @@
-package ru.applmath.dbondin.corbatictaktoeserver;
+package ru.applmath.dbondin.corbatictactoeserver;
 
 import org.omg.CORBA.StringHolder;
 
@@ -7,7 +7,7 @@ import ru.applmath.dbondin.idl.ticktacktoe.FieldHolder;
 import ru.applmath.dbondin.idl.ticktacktoe.GamePOA;
 
 public class GameImpl extends GamePOA {
-
+	
 	public boolean entry(String nickname, StringHolder gameCookie) {
 		// TODO Auto-generated method stub
 		return false;
@@ -30,7 +30,7 @@ public class GameImpl extends GamePOA {
 	
 	public String getVersion() {
 		//TODO: Make good version here
-		return "corba tictaktoe server // dbondin";
+		return "corba tictactoe server // dbondin";
 	}
 	
 	public boolean makeMove(String gameCookie, int x, int y) {

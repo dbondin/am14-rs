@@ -1,4 +1,4 @@
-package ru.applmath.dbondin.corbatictaktoeserver;
+package ru.applmath.dbondin.corbatictactoeserver;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -20,7 +20,7 @@ import org.omg.PortableServer.POAHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class CorbaTictaktoeServer {
+public class CorbaTictactoeServer {
 
 	public static final String HTTP_TARGET_IDL = "/tic-tac-toe.idl";
 
@@ -28,7 +28,7 @@ public class CorbaTictaktoeServer {
 
 	public static final String HTTP_TARGET_ROOT = "/";
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(CorbaTictaktoeServer.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(CorbaTictactoeServer.class);
 
 	private final int httpServerPort;
 
@@ -36,7 +36,7 @@ public class CorbaTictaktoeServer {
 
 	private String iorString = null;
 
-	private static final String MAVEN_PROPERTIES_RESOURCE_NAME = "/META-INF/maven/ru.applmath.dbondin/corba-tictaktoe-server/pom.properties";
+	private static final String MAVEN_PROPERTIES_RESOURCE_NAME = "/META-INF/maven/ru.applmath.dbondin/corba-tictactoe-server/pom.properties";
 
 	private String version = "UNKNOWN";
 	
@@ -60,7 +60,7 @@ public class CorbaTictaktoeServer {
 		}
 	}
 
-	public CorbaTictaktoeServer(int httpServerPort) {
+	public CorbaTictactoeServer(int httpServerPort) {
 		this.httpServerPort = httpServerPort;
 
 		httpProcessors = new HashMap<String, HttpProcessor>();
@@ -68,7 +68,7 @@ public class CorbaTictaktoeServer {
 			public void printData(PrintWriter writer) {
 				InputStream is = null;
 				try {
-					is = getClass().getResourceAsStream("/tic-tac-toe.idl");
+					is = getClass().getResourceAsStream("/idl/tic-tac-toe.idl");
 					if (is != null) {
 						byte[] buffer = new byte[1024];
 						while (true) {
@@ -196,7 +196,7 @@ public class CorbaTictaktoeServer {
 	}
 
 	public void start() {
-		LOGGER.info("*** Starting CorbaTictaktoeServer ***");
+		LOGGER.info("*** Starting CorbaTictactoeServer ***");
 		if (!startCorbaServer()) {
 			LOGGER.error("Failed to start CORBA server. Exiting.");
 			System.exit(1);
@@ -205,7 +205,7 @@ public class CorbaTictaktoeServer {
 			LOGGER.error("Failed to start HTTP server. Exiting.");
 			System.exit(1);
 		}
-		LOGGER.info("*** CorbaTictaktoeServer is running now ***");
+		LOGGER.info("*** CorbaTictactoeServer is running now ***");
 	}
 
 	public static void main(String[] args) {
@@ -222,7 +222,7 @@ public class CorbaTictaktoeServer {
 			System.exit(1);
 		}
 
-		CorbaTictaktoeServer corbaTictaktoeServer = new CorbaTictaktoeServer(httpServerPort);
-		corbaTictaktoeServer.start();
+		CorbaTictactoeServer corbaTictactoeServer = new CorbaTictactoeServer(httpServerPort);
+		corbaTictactoeServer.start();
 	}
 }

@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>ru.applmath.dbondin</groupId>
-	<artifactId>corba-tictaktoe-server</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>corba-tictactoe-server</artifactId>
+	<version>0.0.2-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>corba-tictaktoe-server</name>
+	<name>corba-tictactoe-server</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
@@ -49,6 +49,7 @@
 					</execution>
 				</executions>
 				<configuration>
+				<sourceDirectory>${basedir}/src/main/resources/idl</sourceDirectory>
 					<compiler>idlj</compiler>
 					<debug>true</debug>
 					<sources>
@@ -79,7 +80,7 @@
 					</descriptorRefs>
 					<archive>
 						<manifest>
-							<mainClass>ru.applmath.dbondin.corbatictaktoeserver.CorbaTictaktoeServer</mainClass>
+							<mainClass>ru.applmath.dbondin.corbatictactoeserver.CorbaTictactoeServer</mainClass>
 						</manifest>
 					</archive>
 				</configuration>

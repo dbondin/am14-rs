@@ -1,4 +1,4 @@
-package ru.applmath.dbondin.corbatictaktoeserver;
+package ru.applmath.dbondin.corbatictactoeserver;
 
 import java.io.PrintWriter;
 
