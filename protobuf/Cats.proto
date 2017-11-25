@@ -1,0 +1,25 @@
+message Query {
+  enum QueryType {
+    ALL_CATS = 0;
+    CAT_DETAILS = 1;
+  }
+  
+  required QueryType type = 1;
+  optional int32 catId = 2;
+}
+
+message AllCatsResult {
+  message Cat {
+    required int32 catId = 1;
+    required string name = 2;
+  }
+  repeated Cat cats = 1;
+}
+
+message CatDetailsResult {
+    required int32 catId = 1;
+    required string name = 2;
+    optional string breed = 3;
+    optional int32 age = 4;
+    optional string sex = 5;
+}
